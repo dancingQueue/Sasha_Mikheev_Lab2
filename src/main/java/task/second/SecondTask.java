@@ -8,27 +8,29 @@ import task.Task;
 public class SecondTask extends Task {
 
     public void sort(int[] array) {
-
-        for (int i = 0; i < array.length/2; i++) {
-            boolean swapped = false;
+        int tempValue;
+        for (int i = 0; i < array.length / 2; i++) {
+            boolean isSwapped = false;
             for (int j = i; j < array.length - i - 1; j++) {
-                if (array[j] < array[j+1]) {
-                    int tmp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = tmp;
-                    swapped = true;
+                if (array[j] < array[j + 1]) {
+                    tempValue = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = tempValue;
+                    isSwapped = true;
                 }
             }
 
             for (int j = array.length - 2 - i; j > i; j--) {
-                if (array[j] > array[j-1]) {
-                    int tmp = array[j];
-                    array[j] = array[j-1];
-                    array[j-1] = tmp;
-                    swapped = true;
+                if (array[j] > array[j - 1]) {
+                    tempValue = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = tempValue;
+                    isSwapped = true;
                 }
             }
-            if(!swapped) break;
+            if(!isSwapped) {
+                break;
+            }
         }
 
     }
